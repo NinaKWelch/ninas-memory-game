@@ -4,12 +4,11 @@
 
 /* variables */
 
-const deck = ;
-const cards = ;
-const stars = ;
-const moves = ;
-const timer = ;
-
+const deck = document.querySelector('.deck');
+const cards = [...document.querySelectorAll('.deck li')];
+const stars = [...document.querySelectorAll('.stars li')];
+const moves = document.querySelector('.moves');
+const timer = document.querySelector('.timer');
 
 /* event listeners */
 
@@ -17,49 +16,144 @@ const timer = ;
 document.addEventListener('load', startGame);
 
 //event listener for when a card is clicked
-document.addEventListener('click', showCard);
+deck.addEventListener('click', showCard);
 
 
 /* functions */
 
 //start game function
 function startGame() {
+	//reset stars
+	for (let i = 0; i < stars.length; i++) {
+		stars[i].innerHTML = '<i class="fa fa-star"></i>';
+	}
 
+	//reset moves
+	moves.textContent = '0 Moves';
+
+	//reset timer
+	timer.textContent = '00:00'
+
+	//flip cards
+	for (let i = 0; i < cards.length; i++) {
+		cards[i].setAttribute('class', 'card');
+	}
+
+	//shuffle cards
+	cards = shuffle(cards);
 }
 
-//end game function
-function endGame() {
-
-}
 
 //show card function
-function showCard() {
+function showCard(event) {
+	//start timer when first card is clicked
+	//show the card that was clicked
+	const thisCard = event.target.classList;
 
+	if (!thisCard.contains('open') || !thisCard.contains('match')) {
+		thisCard.add('open', 'show');
+		countMoves();
+		addToOpen();
+	}
 }
+
 
 //add to open cards function
 function addToOpen() {
 
+	const openCards = [];//new array for open cards
+
+	//add open cards to the array
+	for (let i = 0; i < cards.length; i++) {
+		if (cards[i].classList.contains('open') === true) {
+			openCards.push(cards[i]);
+		}
+	}
+
+	//check if the open cards match
+	for (let i = 0; i < openCards.length; i++) {
+
+		let cardPair = openCards[i].classList;
+
+		if (openCards.length > 2) {
+			//only two unmatched cards can be open at a time
+			cardPair.remove('open', 'show');
+		} else if (openCards[0].innerHTML === openCards[1].innerHTML) {
+			//setTimeout adds a small delay before cards are matched
+			setTimeout(function() {
+				cardPair.remove('open', 'show');
+				cardPair.add('match');
+				addToMatched();
+			}, 400);
+		} else {
+			//slightly longer delay, if cards do not match, so they can be memorized
+			setTimeout(function() {
+				cardPair.remove('open', 'show');
+			}, 800);
+		}
+	}
 }
+
 
 //add to matched cards function
 function addToMatched() {
 
+	const matchedCards = [];//new array for matched cards
+
+	//add matched cards to the array
+	for (let i = 0; i < cards.length; i++) {
+		if (cards[i].classList.contains('match') === true) {
+			matchedCards.push(cards[i]);
+		}
+	}
+
+	//check if all cards have matched to end the game
+	if (matchedCards.length === 16) {
+		endGame();
+	}
 }
 
-//hide card function
-function hideCard() {
-
-}
 
 //move counter function
 function countMoves() {
 
+	let num = 0;
+	num++
+
+	if (num === 1) {
+		moves.textContent = num + ' Move';
+		//start the timer on the first move
+		startTimer();
+	} else {
+		moves.textContent = num + ' Moves';
+
+		//reduce the number of stars based on number of moves
+		if (24 < num <= 36) {
+			stars[2].innerHTML = '<i class="fa fa-star-o"></i>';
+		} else if (36 < num <= 54) {
+			stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
+		} else if (num > 55) {
+			stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
+		}
+	}
 }
 
-//message function
-function gameScore() {
 
+//timer function
+function startTimer() {
+
+}
+
+
+//end game function
+function endGame() {
+	//stop timer
+	//open a modal window
+	//add heading 'Well Done!'
+	//show stars
+	//show moves
+	//show time
+	//add replay button 'Play Again!'
 }
 
 /*
