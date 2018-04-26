@@ -10,6 +10,8 @@ const stars = [...document.querySelectorAll('.stars li')];
 const moves = document.querySelector('.moves');
 const timer = document.querySelector('.timer');
 let num = 0;
+let sec = 0;
+let min = 0;
 
 /* event listeners */
 
@@ -29,12 +31,17 @@ function startGame() {
 		stars[i].innerHTML = '<i class="fa fa-star"></i>';
 	}
 
+	//reset timer
+	clearInterval(setTimer);
+	sec = 0;
+	min = 0;
+	timer.textContent = 'Time: 00:00';
+
+
 	//reset moves
 	num = 0;
-	moves.textContent = '0 Moves';
+	moves.textContent = 'Moves: 0';
 
-	//reset timer
-	timer.textContent = '00:00';
 
 	//flip cards
 	for (let i = 0; i < cards.length; i++) {
@@ -119,14 +126,13 @@ function addToMatched() {
 //move counter function
 function countMoves() {
 
-	num++
+	num++;
+	moves.textContent = 'Moves: ' + num;
 
 	if (num === 1) {
-		moves.textContent = num + ' Move';
 		//start the timer on the first move
 		startTimer();
 	} else if (num > 1) {
-		moves.textContent = num + ' Moves';
 		//reduce the number of stars based on number of moves
 		if (num > 55) {
 			stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
@@ -142,12 +148,35 @@ function countMoves() {
 //timer function
 function startTimer() {
 
+	//increment timer per second
+	setTimer = setInterval(time, 1000);
+
+	function time() {
+		sec++;
+
+		if (sec == 60) {
+			sec = 0;
+			min++;
+		}
+
+		//display timer in 00 : 00 format
+		if (sec < 10 && min < 10 ) {
+			timer.textContent = 'Time: 0' + min + ':0' + sec;
+		} else if (sec < 10 && min > 10) {
+			timer.textContent = 'Time: ' + min + ':0' + sec;
+		} else if (sec > 10 && min < 10) {
+			timer.textContent = 'Time: 0' + min + ':' + sec;
+		} else {
+			timer.textContent = 'Time: ' + min + ':' + sec;
+		}
+	}
 }
 
 
 //end game function
 function endGame() {
 	//stop timer
+	clearInterval(setTimer);
 	//open a modal window
 	//add heading 'Well Done!'
 	//show stars
