@@ -9,6 +9,7 @@ const cards = [...document.querySelectorAll('.deck li')];
 const stars = [...document.querySelectorAll('.stars li')];
 const moves = document.querySelector('.moves');
 const timer = document.querySelector('.timer');
+let num = 0;
 
 /* event listeners */
 
@@ -29,10 +30,11 @@ function startGame() {
 	}
 
 	//reset moves
+	num = 0;
 	moves.textContent = '0 Moves';
 
 	//reset timer
-	timer.textContent = '00:00'
+	timer.textContent = '00:00';
 
 	//flip cards
 	for (let i = 0; i < cards.length; i++) {
@@ -46,7 +48,7 @@ function startGame() {
 
 //show card function
 function showCard(event) {
-	//start timer when first card is clicked
+
 	//show the card that was clicked
 	const thisCard = event.target.classList;
 
@@ -117,23 +119,21 @@ function addToMatched() {
 //move counter function
 function countMoves() {
 
-	let num = 0;
 	num++
 
 	if (num === 1) {
 		moves.textContent = num + ' Move';
 		//start the timer on the first move
 		startTimer();
-	} else {
+	} else if (num > 1) {
 		moves.textContent = num + ' Moves';
-
 		//reduce the number of stars based on number of moves
-		if (24 < num <= 36) {
-			stars[2].innerHTML = '<i class="fa fa-star-o"></i>';
-		} else if (36 < num <= 54) {
-			stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
-		} else if (num > 55) {
+		if (num > 55) {
 			stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
+		} else if (num > 36) {
+			stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
+		} else if (num > 24) {
+			stars[2].innerHTML = '<i class="fa fa-star-o"></i>';
 		}
 	}
 }
