@@ -4,11 +4,11 @@
 
 /* variables */
 
-const deck = document.querySelector('.deck');
-const cards = [...document.querySelectorAll('.deck li')];
 const stars = [...document.querySelectorAll('.stars li')];
 const moves = document.querySelector('.moves');
 const timer = document.querySelector('.timer');
+const deck = document.querySelector('.deck');
+let cards = [...document.querySelectorAll('.deck li')];
 let num = 0;
 let sec = 0;
 let min = 0;
@@ -26,10 +26,12 @@ deck.addEventListener('click', showCard);
 
 //start game function
 function startGame() {
+
 	//reset stars
-	for (let i = 0; i < stars.length; i++) {
-		stars[i].innerHTML = '<i class="fa fa-star"></i>';
-	}
+	stars.forEach(function(star) {
+		star.innerHTML = '<i class="fa fa-star"></i>';
+	});
+
 
 	//reset timer
 	clearInterval(setTimer);
@@ -43,13 +45,17 @@ function startGame() {
 	moves.textContent = 'Moves: 0';
 
 
-	//flip cards
-	for (let i = 0; i < cards.length; i++) {
-		cards[i].setAttribute('class', 'card');
-	}
-
 	//shuffle cards
 	cards = shuffle(cards);
+
+    //loop through each card
+	cards.forEach(function(card) {
+		//flip each cards
+		card.setAttribute('class', 'card');
+		//add each card's HTML to the page
+        deck.appendChild(card);
+    });
+
 }
 
 
@@ -159,7 +165,7 @@ function startTimer() {
 			min++;
 		}
 
-		//display timer in 00 : 00 format
+		//display timer in 00:00 format
 		if (sec < 10 && min < 10 ) {
 			timer.textContent = 'Time: 0' + min + ':0' + sec;
 		} else if (sec < 10 && min > 10) {
