@@ -19,6 +19,8 @@ body {
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+    font-size: 16px;
+    color: #2e3d49;
 }
 
 .container {
@@ -30,7 +32,27 @@ body {
 
 h1 {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 500;
+}
+
+.timer,
+.moves {
+    font-family: monospace;
+}
+
+.start-btn {
+    font-family: inherit;
+    font-size: 1em;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
+}
+
+.start-btn:hover {
+    background: #aa7ecd;
 }
 
 /*
@@ -39,7 +61,7 @@ h1 {
 
 .deck {
     width: 660px;
-    min-height: 680px;
+    height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -81,13 +103,14 @@ h1 {
     font-size: 33px;
 }
 
+
 /*
  * Styles for the Score Panel
  */
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 650px;
     margin-bottom: 10px;
 }
 
@@ -101,9 +124,41 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    color: #ff9900;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
+
+/*
+ * Styles for the popup messages
+ */
+
+ .popup-start,
+ .popup-end {
+    position: absolute;
+    z-index: 3;
+    background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    text-align: center;
+    padding: 0 30px 30px;
+    border-radius: 10px;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+ }
+
+ .popup-end {
+    display: none;
+}
+
+.popup-message {
+    margin-bottom: 0;
+}
+
+.total-stars {
+    font-size: 1.4em;
+    color: #ff9900;
+}
+
+
+

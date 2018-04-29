@@ -1,68 +1,88 @@
 /*
- * Create a list that holds all of your cards
+ * Matching Game CSS
  */
+
 
 /* variables */
 
-const stars = [...document.querySelectorAll('.stars li')];
-const moves = document.querySelector('.moves');
-const timer = document.querySelector('.timer');
-const deck = document.querySelector('.deck');
-let cards = [...document.querySelectorAll('.deck li')];
-let num = 0;
-let sec = 0;
-let min = 0;
-
-/* event listeners */
-
-//event listener to start the game when the page loads
-document.addEventListener('load', startGame);
-
-//event listener for when a card is clicked
-deck.addEventListener('click', showCard);
+const popupStart = document.querySelector('.popup-start');//popup when the page loads
+const popupEnd = document.querySelector('.popup-end');//popup at the end of the game
+const start = [...document.querySelectorAll('.start-btn')];//array of start buttons
+const stars = [...document.querySelectorAll('.stars li')];//array of stars
+const moves = document.querySelector('.moves');//move counter
+const timer = document.querySelector('.timer');//stopwatch
+const deck = document.querySelector('.deck');//game board
+let cards = [...document.querySelectorAll('.deck li')];//array of cards
+let num = 0;//moves
+let sec = 0;//stopwatch seconds
+let min = 0;//stopwatch minutes
 
 
 /* functions */
 
-//start game function
+//event listener to start buttons
+start.forEach(function(button) {
+	button.addEventListener('click', startGame);
+});
+
+
+//shuffle function for the cards (http://stackoverflow.com/a/2450976)
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
+
+///reset the game board
 function startGame() {
+
+	//event listener for when a card is clicked
+	deck.addEventListener('click', showCard);
+
+	//hide popups
+	popupStart.setAttribute('style', 'display: none');
+	popupEnd.setAttribute('style', 'display: none');
 
 	//reset stars
 	stars.forEach(function(star) {
 		star.innerHTML = '<i class="fa fa-star"></i>';
 	});
 
-
 	//reset timer
 	clearInterval(setTimer);
 	sec = 0;
 	min = 0;
-	timer.textContent = 'Time: 00:00';
-
+	timer.textContent = '00:00';
 
 	//reset moves
 	num = 0;
-	moves.textContent = 'Moves: 0';
-
+	moves.textContent = '0';
 
 	//shuffle cards
-	cards = shuffle(cards);
+	shuffle(cards);
 
-    //loop through each card
+   	//loop through each card
 	cards.forEach(function(card) {
-		//flip each cards
+		//flip each card
 		card.setAttribute('class', 'card');
 		//add each card's HTML to the page
         deck.appendChild(card);
     });
-
 }
 
 
-//show card function
+//show the card, if it's not open or matched
 function showCard(event) {
 
-	//show the card that was clicked
 	const thisCard = event.target.classList;
 
 	if (!thisCard.contains('open') || !thisCard.contains('match')) {
@@ -73,7 +93,7 @@ function showCard(event) {
 }
 
 
-//add to open cards function
+//add card to open cards array and check if open cards match
 function addToOpen() {
 
 	const openCards = [];//new array for open cards
@@ -88,7 +108,7 @@ function addToOpen() {
 	//check if the open cards match
 	for (let i = 0; i < openCards.length; i++) {
 
-		let cardPair = openCards[i].classList;
+		const cardPair = openCards[i].classList;
 
 		if (openCards.length > 2) {
 			//only two unmatched cards can be open at a time
@@ -110,7 +130,7 @@ function addToOpen() {
 }
 
 
-//add to matched cards function
+//add cards to matched cards array and end the game if all cards have matched
 function addToMatched() {
 
 	const matchedCards = [];//new array for matched cards
@@ -129,32 +149,32 @@ function addToMatched() {
 }
 
 
-//move counter function
+//count moves by counting how many times cards are clicked
 function countMoves() {
 
 	num++;
-	moves.textContent = 'Moves: ' + num;
+	moves.textContent = num;
 
 	if (num === 1) {
-		//start the timer on the first move
+		//start the stopwatch on the first move
 		startTimer();
 	} else if (num > 1) {
 		//reduce the number of stars based on number of moves
-		if (num > 55) {
+		if (num > 45) {
 			stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
-		} else if (num > 36) {
+		} else if (num > 37) {
 			stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
-		} else if (num > 24) {
+		} else if (num > 25) {
 			stars[2].innerHTML = '<i class="fa fa-star-o"></i>';
 		}
 	}
 }
 
 
-//timer function
+//stopwatch function
 function startTimer() {
 
-	//increment timer per second
+	//increment time per second
 	setTimer = setInterval(time, 1000);
 
 	function time() {
@@ -165,62 +185,56 @@ function startTimer() {
 			min++;
 		}
 
-		//display timer in 00:00 format
+
+		//display time in 00:00 format
 		if (sec < 10 && min < 10 ) {
-			timer.textContent = 'Time: 0' + min + ':0' + sec;
+			timer.textContent = '0' + min + ':0' + sec;
 		} else if (sec < 10 && min > 10) {
-			timer.textContent = 'Time: ' + min + ':0' + sec;
-		} else if (sec > 10 && min < 10) {
-			timer.textContent = 'Time: 0' + min + ':' + sec;
+			timer.textContent = min + ':0' + sec;
+		} else if (sec >= 10 && min < 10) {
+			timer.textContent = '0' + min + ':' + sec;
 		} else {
-			timer.textContent = 'Time: ' + min + ':' + sec;
+			timer.textContent = min + ':' + sec;
 		}
 	}
 }
 
 
-//end game function
+//end the game and set the score
 function endGame() {
 	//stop timer
 	clearInterval(setTimer);
+	//remove event listener so no more moves can be made
+	deck.removeEventListener('click', showCard);
 	//open a modal window
-	//add heading 'Well Done!'
-	//show stars
-	//show moves
-	//show time
-	//add replay button 'Play Again!'
-}
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
+	showScore();
 }
 
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+//show the score and message at the end of the game
+function showScore() {
+
+	const message = document.querySelector('.popup-message');
+	const text = document.querySelector('.popup-text');
+
+	//show the popup
+	popupEnd.setAttribute('style', 'display: initial');
+
+	//show time score
+	document.querySelector('.total-time').textContent = timer.textContent;
+
+	//show star score
+	document.querySelector('.total-stars').innerHTML = stars[0].innerHTML + ' ' + stars[1].innerHTML + ' ' + stars[2].innerHTML;
+
+	//show a different message depending on score
+	if (num > 36) {
+		message.textContent = 'Good effort!';
+		text.textContent = 'Practice makes perfect';
+	} else if (num > 24) {
+		message.textContent = 'Well Done!';
+		text.textContent = 'Almost perfect score';
+	} else {
+		message.textContent = 'Masterful!';
+		text.textContent = 'Your memory is impeccable';
+	}
+}
