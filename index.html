@@ -15,12 +15,14 @@
             <h1>Matching Game</h1>
         </header>
 
+                <!-- Popup when the page loads -->
         <div class="popup-start">
             <h3>Jog your memory</h3>
             <p>Find the matching pairs in minimum amount of moves.</p>
             <button class="start-btn">Play</button>
         </div>
 
+        <!-- Popup when the game ends -->
         <div class="popup-end">
             <h3 class="popup-message"></h3>
                 <span class="total-stars"></span><br>
@@ -29,18 +31,22 @@
             <button class="start-btn">Play Again</button>
         </div>
 
+        <!-- Score display -->
         <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
+            <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
 
-        	Moves: <span class="moves">0</span> | Time: <span class="timer">00:00</span>
+            <div class="score">Moves<br><span class="moves">0</span></div>
 
+            <div class="score">Time<br><span class="timer">00:00</span></div>
+
+            <!-- Restart button -->
             <button class="restart start-btn">
-        		<i class="fa fa-repeat"></i>
-        	</button>
+                <i class="fa fa-repeat"></i>
+            </button>
         </section>
 
         <ul class="deck">

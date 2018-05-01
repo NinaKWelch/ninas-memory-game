@@ -5,7 +5,7 @@ html {
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: inherit;/* border-box will be applied to all elements */
 }
 
 html,
@@ -33,19 +33,23 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
+    margin-bottom: 1em;
 }
 
-.timer,
-.moves {
-    font-family: monospace;
+/*
+* Buttons
+*/
+
+button {
+    border: 0;
+    font-size: 1.4em;
+    font-family: inherit;
+    cursor: pointer;
 }
 
 .start-btn {
-    font-family: inherit;
-    font-size: 1em;
     color: #fff;
     padding: 5px 15px;
-    border: none;
     border-radius: 10px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
@@ -56,14 +60,90 @@ h1 {
 }
 
 /*
+ * Styles for the popup messages
+ */
+
+ .popup-start,
+ .popup-end {
+    position: absolute;
+    width: 234px;
+    top: 165px;
+    z-index: 3;
+    background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    text-align: center;
+    padding: 0 18px 30px;
+    border-radius: 10px;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+ }
+
+ .popup-end {
+    display: none;
+}
+
+ .popup-end .popup-message {
+    margin-bottom: 0;
+}
+
+ .popup-end .popup-text {
+    line-height: 1.15em;
+}
+
+ .popup-end .total-stars {
+    font-size: 1.4em;
+    color: #ff9900;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 270px;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 20%;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+    color: #ff9900;
+}
+
+.score-panel .score {
+    width: 20%;
+    text-align: center;
+}
+
+.score-panel .restart {
+    float: right;
+}
+
+.timer,
+.moves {
+     font-family: monospace;/* sets all numbers to equal width */
+}
+
+/*
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 660px;
-    height: 680px;
+    width: 280px;
+    height: 280px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -74,16 +154,16 @@ h1 {
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    height: 21%;
+    width: 21%;
     background: #2e3d49;
     font-size: 0;
-    color: #ffffff;
+    color: #fff;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;/* for symbols */
+    align-items: center;/* for symbols */
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
@@ -94,71 +174,124 @@ h1 {
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 24px;
 }
 
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px;
-}
-
-
-/*
- * Styles for the Score Panel
- */
-
-.score-panel {
-    text-align: left;
-    width: 650px;
-    margin-bottom: 10px;
-}
-
-.score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-    color: #ff9900;
-}
-
-.score-panel .restart {
-    float: right;
-    cursor: pointer;
+    font-size: 24px;
 }
 
 /*
- * Styles for the popup messages
+ * Styles for different size screens
  */
 
- .popup-start,
- .popup-end {
-    position: absolute;
-    z-index: 3;
-    background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    text-align: center;
-    padding: 0 30px 30px;
-    border-radius: 10px;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
- }
+@media only screen and (min-width: 410px) {
+    body {
+        font-size: 18px;
+    }
 
- .popup-end {
-    display: none;
+    .popup-start,
+    .popup-end {
+        width: 260px;
+        top: 211px;
+        padding: 0 19px 30px;
+    }
+
+    .score-panel {
+        width: 340px;
+    }
+
+    .score-panel .stars li {
+        font-size: 1.2em;
+    }
+
+    .score-panel .restart {
+        margin-left: 6%;
+    }
+
+    .deck {
+        width: 360px;
+        height: 360px;
+        padding: 18px;
+    }
 }
 
-.popup-message {
-    margin-bottom: 0;
+@media only screen and (min-width: 650px) {
+    h1 {
+        font-size: 2.3em;
+    }
+
+    .popup-start,
+    .popup-end {
+        width: 315px;
+        top: 251px;
+        padding: 30px 47px 50px;
+    }
+
+    .score-panel {
+        width: 440px;
+        font-size: 1.1em;
+    }
+
+    .score-panel .restart {
+        margin-left: 10%;
+    }
+
+    .deck {
+        width: 460px;
+        height: 460px;
+        padding: 25px;
+    }
+
+    .deck .card.show {
+        font-size: 40px;
+    }
+
+    .deck .card.match {
+        font-size: 40px;
+    }
 }
 
-.total-stars {
-    font-size: 1.4em;
-    color: #ff9900;
+@media only screen and (min-width: 740px) {
+    .popup-start,
+    .popup-end {
+        width: 300px;
+        top: 367px;
+        padding: 30px 39px 50px;
+    }
+
+    .score-panel {
+        width: 640px;
+        font-size: 1.2em;
+    }
+
+    .score-panel .stars li {
+        font-size: 1.5em;
+    }
+
+    .score-panel .score {
+        width: 16%;
+    }
+
+    .score-panel .restart {
+        margin-left: 13%;
+    }
+
+    .deck {
+        width: 660px;
+        height: 680px;
+        padding: 32px;
+    }
+
+    .deck .card {
+        height: 125px;
+        width: 125px;
+    }
 }
+
+
 
 
 
