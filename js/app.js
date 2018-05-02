@@ -1,13 +1,11 @@
 /*
- * Matching Game CSS
+ * Matching Game JS
  */
 
-
 /* variables */
-
 const popupStart = document.querySelector('.popup-start');//popup when the page loads
 const popupEnd = document.querySelector('.popup-end');//popup at the end of the game
-const start = [...document.querySelectorAll('.start-btn')];//array of start buttons
+const start = [...document.querySelectorAll('.start-btn')];//array of buttons
 const stars = [...document.querySelectorAll('.stars li')];//array of stars
 const moves = document.querySelector('.moves');//move counter
 const timer = document.querySelector('.timer');//stopwatch
@@ -16,15 +14,15 @@ let cards = [...document.querySelectorAll('.deck li')];//array of cards
 let num = 0;//moves
 let sec = 0;//stopwatch seconds
 let min = 0;//stopwatch minutes
+let setTimer = '';//setTimer variable
 
 
 /* functions */
 
-//event listener to start buttons
+//event listener for buttons
 start.forEach(function(button) {
 	button.addEventListener('click', startGame);
 });
-
 
 //shuffle function for the cards (http://stackoverflow.com/a/2450976)
 function shuffle(array) {
@@ -40,7 +38,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 ///reset the game board
 function startGame() {
@@ -79,7 +76,6 @@ function startGame() {
     });
 }
 
-
 //show the card, if it's not open or matched
 function showCard(event) {
 
@@ -91,7 +87,6 @@ function showCard(event) {
 		addToOpen();
 	}
 }
-
 
 //add card to open cards array and check if open cards match
 function addToOpen() {
@@ -114,21 +109,21 @@ function addToOpen() {
 			//only two unmatched cards can be open at a time
 			cardPair.remove('open', 'show');
 		} else if (openCards[0].innerHTML === openCards[1].innerHTML) {
-			//setTimeout adds a small delay before cards are matched
+			//add a small delay before cards are matched
 			setTimeout(function() {
 				cardPair.remove('open', 'show');
 				cardPair.add('match');
 				addToMatched();
 			}, 400);
 		} else {
-			//slightly longer delay, if cards do not match, so they can be memorized
+			cardPair.add('hide');
+			//add a slightly longer delay, if cards do not match, so they can be memorized
 			setTimeout(function() {
-				cardPair.remove('open', 'show');
+				cardPair.remove('hide', 'open', 'show');
 			}, 800);
 		}
 	}
 }
-
 
 //add cards to matched cards array and end the game if all cards have matched
 function addToMatched() {
@@ -148,7 +143,6 @@ function addToMatched() {
 	}
 }
 
-
 //count moves by counting how many times cards are clicked
 function countMoves() {
 
@@ -160,16 +154,15 @@ function countMoves() {
 		startTimer();
 	} else if (num > 1) {
 		//reduce the number of stars based on number of moves
-		if (num > 45) {
+		if (num > 44) {
 			stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
-		} else if (num > 37) {
+		} else if (num > 36) {
 			stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
-		} else if (num > 25) {
+		} else if (num > 24) {
 			stars[2].innerHTML = '<i class="fa fa-star-o"></i>';
 		}
 	}
 }
-
 
 //stopwatch function
 function startTimer() {
@@ -183,8 +176,10 @@ function startTimer() {
 		if (sec == 60) {
 			sec = 0;
 			min++;
+		} else if (min == 1) {
+			sec = 0;
+			endGame();//time limit for game
 		}
-
 
 		//display time in 00:00 format
 		if (sec < 10 && min < 10 ) {
@@ -206,10 +201,9 @@ function endGame() {
 	clearInterval(setTimer);
 	//remove event listener so no more moves can be made
 	deck.removeEventListener('click', showCard);
-	//open a modal window
+	//open popup
 	showScore();
 }
-
 
 //show the score and message at the end of the game
 function showScore() {
@@ -218,7 +212,9 @@ function showScore() {
 	const text = document.querySelector('.popup-text');
 
 	//show the popup
-	popupEnd.setAttribute('style', 'display: initial');
+	setTimeout(function() {
+		popupEnd.setAttribute('style', 'display: initial');
+	}, 1000);
 
 	//show time score
 	document.querySelector('.total-time').textContent = timer.textContent;
@@ -227,7 +223,12 @@ function showScore() {
 	document.querySelector('.total-stars').innerHTML = stars[0].innerHTML + ' ' + stars[1].innerHTML + ' ' + stars[2].innerHTML;
 
 	//show a different message depending on score
-	if (num > 36) {
+	if (min === 1) {
+		message.textContent = 'Game over!';
+		//replace stars with x
+		document.querySelector('.total-stars').innerHTML = '<i class="fa fa-times"></i><i class="fa fa-times"></i><i class="fa fa-times"></i>';
+		text.textContent = 'You\'re out of time';
+	} else if (num > 36) {
 		message.textContent = 'Good effort!';
 		text.textContent = 'Practice makes perfect';
 	} else if (num > 24) {

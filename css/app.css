@@ -1,3 +1,7 @@
+/*
+ * Matching Game CSS
+ */
+
 html {
     box-sizing: border-box;
 }
@@ -45,6 +49,11 @@ button {
     font-size: 1.4em;
     font-family: inherit;
     cursor: pointer;
+
+}
+
+button:hover {
+    animation: press 0.5s;
 }
 
 .start-btn {
@@ -78,6 +87,7 @@ button {
 
  .popup-end {
     display: none;
+    animation: game-over 0.75s;
 }
 
  .popup-end .popup-message {
@@ -161,7 +171,7 @@ button {
     color: #fff;
     border-radius: 8px;
     cursor: pointer;
-    display: flex;
+    display: flex;/* for symbols */
     justify-content: center;/* for symbols */
     align-items: center;/* for symbols */
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
@@ -177,16 +187,57 @@ button {
     font-size: 24px;
 }
 
+.deck .card.hide {
+    background: #ff66cc;
+    animation: no-match 0.5s;
+}
+
 .deck .card.match {
     cursor: default;
     background: #02ccba;
     font-size: 24px;
+    animation: match 0.75s;
+}
+
+
+/*
+* Keyframe animations
+*/
+
+/* Animation for cards, when they match */
+@keyframes match {
+    40%  {transform: scale(0.8);}
+    60%  {transform: scale(1.1);}
+    90%  {transform: scale(0.95);}
+}
+
+/* Animation for cards, when they do not match */
+@keyframes no-match {
+    15%  {transform: rotate(-5deg);}
+    30%  {transform: rotate(5deg);}
+    45%  {transform: rotate(-5deg);}
+    60%  {transform: rotate(5deg);}
+    75%  {transform: rotate(-5deg);}
+    90%  {transform: rotate(5deg);}
+}
+
+/* Animation for pop up at the end of the game */
+@keyframes game-over {
+    0%  {transform: scale(0);}
+    100%  {transform: scale(1);}
+}
+
+/* Animation for buttons */
+@keyframes press {
+    50%  {transform: scale(0.9);}
+    100%  {transform: scale(1);}
 }
 
 /*
  * Styles for different size screens
  */
 
+/* Small screens */
 @media only screen and (min-width: 410px) {
     body {
         font-size: 18px;
@@ -218,6 +269,7 @@ button {
     }
 }
 
+/* Medium screens */
 @media only screen and (min-width: 650px) {
     h1 {
         font-size: 2.3em;
@@ -254,6 +306,7 @@ button {
     }
 }
 
+/* Large screens */
 @media only screen and (min-width: 740px) {
     .popup-start,
     .popup-end {
@@ -272,7 +325,7 @@ button {
     }
 
     .score-panel .score {
-        width: 16%;
+        width: 14%;
     }
 
     .score-panel .restart {
