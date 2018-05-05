@@ -81,7 +81,9 @@ function showCard(event) {
 
 	const thisCard = event.target.classList;
 
-	if (!thisCard.contains('open') || !thisCard.contains('match')) {
+	if (thisCard.contains('show') || thisCard.contains('match')) {
+		event.preventDefault();//stop counting moves when an open or matched card is clicked
+	} else if (!thisCard.contains('show') || !thisCard.contains('match')) {
 		thisCard.add('open', 'show');
 		countMoves();
 		addToOpen();

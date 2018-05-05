@@ -9,20 +9,12 @@
  */
 
 html {
-  line-height: 1.15; /* 1 */
+  line-height: 1.2; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
    ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-
-body {
-  margin: 0;
-}
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -422,7 +414,7 @@ button:hover {
  .popup-end {
     position: absolute;
     width: 234px;
-    top: 165px;
+    top: 166px;
     z-index: 3;
     background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     text-align: center;
