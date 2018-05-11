@@ -156,7 +156,9 @@ function countMoves() {
 		startTimer();
 	} else if (num > 1) {
 		//reduce the number of stars based on number of moves
-		if (num > 44) {
+		if (num > 99) {
+			endGame();//moves limit for game
+		} else if (num > 44) {
 			stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
 		} else if (num > 36) {
 			stars[1].innerHTML = '<i class="fa fa-star-o"></i>';

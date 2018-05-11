@@ -252,6 +252,7 @@ button:hover {
 
  .popup-end .popup-text {
     line-height: 1em;
+    margin: 9px 0;
 }
 
  .popup-end .total-stars {
