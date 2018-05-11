@@ -142,7 +142,6 @@ h3 {
 
 p {
     padding: 0 17px;
-    line-height: 1.1em;
 }
 
 .container {
@@ -208,7 +207,7 @@ button:hover {
 .popup-end {
     position: absolute;
     width: 234px;
-    top: 213px;
+    top: 212px;
     background: #f2f2f2;
     border: 1px solid #f90;
     border-radius: 10px;
@@ -235,8 +234,7 @@ button:hover {
 }
 
  .popup-end .popup-text {
-    line-height: 1em;
-    margin: 9px 0;
+    margin: 14px 0;
 }
 
  .popup-end .total-stars {
