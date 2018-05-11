@@ -342,7 +342,7 @@ button:hover {
 .score-panel .score .stars {
     position: absolute;
     margin: -8px 0 0 -11px;
-    padding: 1px 10px;
+    padding: 4px 10px;
     background: -webkit-linear-gradient(350deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
     background: -o-linear-gradient(350deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
     background: linear-gradient(100deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
@@ -563,7 +563,7 @@ button:hover {
     }
 
     .score-panel .score .stars {
-        padding: 1px 15px;
+        padding: 3px 15px;
     }
 
     .score-panel .score .clock {
@@ -614,7 +614,7 @@ button:hover {
     }
 
     .score-panel .score .stars {
-        padding: 2px 17px;
+        padding: 4px 17px;
     }
 
     .score-panel .score .moves,
