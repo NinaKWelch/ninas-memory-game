@@ -1,4 +1,4 @@
-/*
+/**
  * Matching Game JS
  */
 

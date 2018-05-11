@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+//*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -26,30 +26,6 @@ h1 {
   margin: 0.67em 0;
 }
 
-/* Grouping content
-   ========================================================================== */
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
 /* Text-level semantics
    ========================================================================== */
 
@@ -62,35 +38,12 @@ a {
 }
 
 /**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-
-/**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
 b,
 strong {
   font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
 }
 
 /**
@@ -101,26 +54,6 @@ small {
   font-size: 80%;
 }
 
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
 
 /* Embedded content
    ========================================================================== */
@@ -141,11 +74,7 @@ img {
  * 2. Remove the margin in Firefox and Safari.
  */
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
@@ -157,8 +86,7 @@ textarea {
  * 1. Show the overflow in Edge.
  */
 
-button,
-input { /* 1 */
+button { /* 1 */
   overflow: visible;
 }
 
@@ -167,8 +95,7 @@ input { /* 1 */
  * 1. Remove the inheritance of text transform in Firefox.
  */
 
-button,
-select { /* 1 */
+button { /* 1 */
   text-transform: none;
 }
 
@@ -206,138 +133,12 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
-/**
- * Correct the padding in Firefox.
- */
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
-}
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-progress {
-  vertical-align: baseline;
-}
-
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
-textarea {
-  overflow: auto;
-}
-
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
-}
-
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-
-details {
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-
-summary {
-  display: list-item;
-}
-
-/* Misc
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10+.
- */
-
-template {
-  display: none;
-}
-
-/**
- * Add the correct display in IE 10.
- */
-
-[hidden] {
-  display: none;
-}
-
 /* End of Normalize.css
    ========================================================================== */
 
 
-/*
- * Matching Game CSS
+/**
+ * Brainball Game CSS
  */
 
 html {
@@ -359,35 +160,44 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #036 url('../img/football_field.jpg') center center fixed;/* Background image by Booker Kelly at foryoursky.com */
+    background-size: cover;
     font-family: 'Coda', cursive;
     font-size: 16px;
-    color: #2e3d49;
+    color: #f2f2f2;
+}
+
+h3 {
+    font-weight: normal;
+    color: #f2f2f2;
+}
+
+p {
+    padding: 0 17px;
 }
 
 .container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    margin-bottom: 1em;
+
+.logo {
+  width: 150px;
+  margin-top: 20px;
 }
 
-/*
+/**
 * Buttons
 */
 
 button {
-    border: 0;
     font-size: 1.4em;
     font-family: inherit;
     cursor: pointer;
-
 }
 
 button:hover {
@@ -395,36 +205,43 @@ button:hover {
 }
 
 .start-btn {
-    color: #fff;
-    padding: 5px 15px;
+    background: linear-gradient(160deg, #f90 0%, #f00 100%);
+    padding: 7px 14px;
+    color: #f2f2f2;
+    border: 3px solid #f2f2f2;
     border-radius: 10px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
 }
 
 .start-btn:hover {
-    background: #aa7ecd;
+    background: linear-gradient(160deg, #cf6 0%, #063 100%);
 }
 
-/*
+/**
  * Styles for the popup messages
  */
 
- .popup-start,
- .popup-end {
+.popup-start,
+.popup-end {
     position: absolute;
     width: 234px;
-    top: 166px;
-    z-index: 3;
-    background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    text-align: center;
-    padding: 30px 18px;
+    top: 213px;
+    background: #f2f2f2;
+    border: 1px solid #f90;
     border-radius: 10px;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
- }
+    box-shadow: 5px 5px 15px 0 rgba(46, 61, 73, 0.6);
+    text-align: center;
+    color: #333;
+    z-index: 3;
+}
 
- .popup-end {
+.popup-start {
+    padding: 18px 0 25px;
+}
+
+.popup-end {
     display: none;
+    padding: 10px 0 20px;
     animation: game-over 0.75s;
 }
 
@@ -438,60 +255,140 @@ button:hover {
 
  .popup-end .total-stars {
     font-size: 1.4em;
-    color: #ff9900;
+    color: #f90;
+    text-shadow: 0 1px 1px #f00;
 }
 
-/*
- * Styles for the Score Panel
+/**
+* Ribbon styles - modified form Chris Coyier's code at https://css-tricks.com/snippets/css/ribbon
+*/
+
+.ribbon {
+   position: relative;
+   background: #039;
+   padding: 10px 0;
+   width: 246px;
+   margin: 7px -7px 7px;
+   box-shadow: 2px 3px 8px 5px rgba(46, 61, 73, 0.3);
+}
+
+.ribbon::before,
+.ribbon::after {
+   content: "";
+   position: absolute;
+   display: block;
+   bottom: -8px;
+   border: 18px solid rgba(0, 51, 153, 0.9);
+}
+
+.ribbon::before {
+   left: -30px;
+   border-right-width: 18px;
+   border-left-color: transparent;
+}
+
+.ribbon::after {
+   right: -30px;
+   border-left-width: 18px;
+   border-right-color: transparent;
+}
+
+.ribbon .ribbon-content::before,
+.ribbon .ribbon-content::after {
+   content: "";
+   position: absolute;
+   display: block;
+   border: 6px solid;
+   border-color: #699 transparent transparent transparent;
+   bottom: -6px;
+   z-index: 2;
+}
+
+.ribbon .ribbon-content::before {
+   left: 0;
+   border-width: 6px 0 0 6px;
+}
+
+.ribbon .ribbon-content::after {
+   right: 0;
+   border-width: 6px 6px 0 0;
+}
+
+/**
+ * Styles for the score panel
  */
 
 .score-panel {
-    text-align: left;
-    width: 270px;
+    width: 280px;
     margin-bottom: 10px;
-    line-height: 1.2em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    width: 20%;
+.score-panel .score-moves {
+    width: 40%;
 }
 
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-    color: #ff9900;
+.score-panel .score-time {
+    width: 35%;
 }
 
 .score-panel .score {
-    width: 20%;
-    text-align: center;
+    position: relative;
+    padding: 2px 8px 2px;
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.6) 0%, #039 80%);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 40px;
 }
 
-.score-panel .restart {
+.score-panel .score .stars {
+    position: absolute;
+    margin: -8px 0 0 -11px;
+    padding: 4px 10px;
+    background: linear-gradient(100deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+}
+
+.score-panel .score .stars li {
+    list-style: none;
+    display: inline-block;
+    color: #f90;
+    text-shadow: 0 1px 1px #f00;
+}
+
+.score-panel .score .timer,
+.score-panel .score .moves {
+    font-family: monospace;/* sets all numbers to equal width */
     float: right;
 }
 
-.timer,
-.moves {
-     font-family: monospace;/* sets all numbers to equal width */
+.score-panel .score .clock {
+    position: absolute;
+    width: 35px;
+    margin: -9px 0 0 -14px;
+    padding: 5px;
+    background: linear-gradient(160deg, #f90 0%, #f00 100%);
+    border: 3px solid #f90;
+    border-radius: 50%;
 }
 
-/*
+.score-panel .restart {
+    font-size: 1.15em;
+}
+
+/**
  * Styles for the deck of cards
  */
 
 .deck {
     width: 280px;
     height: 280px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 15px;
+    padding: 9px;
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.3) 0%, #036 200%);
+    border: 6px solid rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
@@ -504,9 +401,7 @@ button:hover {
 .deck .card {
     height: 21%;
     width: 21%;
-    background: #2e3d49;
-    font-size: 0;
-    color: #fff;
+    background: #f2f2f2;
     border-radius: 8px;
     cursor: pointer;
     display: flex;/* for symbols */
@@ -515,30 +410,36 @@ button:hover {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
+.deck .card .symbol {
+    width: 0%;/* hides the symbols before a card is clicked */
+}
+
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: linear-gradient(160deg, #ff0 0%, #f90 100%);
+    border: 2px solid #ff0;
     cursor: default;
 }
 
-.deck .card.show {
-    font-size: 24px;
-}
-
 .deck .card.hide {
-    background: #ff66cc;
+    background: linear-gradient(160deg, #f99 0%, #f00 100%);
+    border: 2px solid #f99;
     animation: no-match 0.5s;
 }
 
 .deck .card.match {
+    background: linear-gradient(160deg, #cf6 0%, #063 100%);
+    border: 2px solid #cf6;
     cursor: default;
-    background: #02ccba;
-    font-size: 24px;
     animation: match 0.75s;
 }
 
+.deck .card.show img,
+.deck .card.match img {
+    width: 60%;
+}
 
-/*
+/**
 * Keyframe animations
 */
 
@@ -571,7 +472,7 @@ button:hover {
     100%  {transform: scale(1);}
 }
 
-/*
+/**
  * Styles for different size screens
  */
 
@@ -581,25 +482,52 @@ button:hover {
         font-size: 18px;
     }
 
+    p {
+        padding: 0 18px;
+    }
+
+    .logo {
+        width: 180px;
+        margin-bottom: 10px;
+    }
+
+    /* Popup messages */
     .popup-start,
     .popup-end {
         width: 260px;
-        top: 211px;
-        padding: 30px 19px;
+        top: 280px;
     }
 
+    .ribbon {
+       width: 272px;
+    }
+
+    /* Score panel */
     .score-panel {
-        width: 340px;
+        width: 360px;
     }
 
-    .score-panel .stars li {
-        font-size: 1.2em;
+    .score-panel .score-moves {
+        width: 38%;
+    }
+
+    .score-panel .score-time {
+        width: 30%;
+    }
+
+    .score-panel .score .stars {
+        padding: 4px 15px;
+    }
+
+    .score-panel .score .clock {
+        width: 37px;
     }
 
     .score-panel .restart {
-        margin-left: 6%;
+      font-size: 1.25em;
     }
 
+    /* Deck of card */
     .deck {
         width: 360px;
         height: 360px;
@@ -608,66 +536,130 @@ button:hover {
 }
 
 /* Medium screens */
-@media only screen and (min-width: 650px) {
-    h1 {
-        font-size: 2.3em;
+@media only screen and (min-width: 668px) {
+    .logo {
+        width: 220px;
+        margin: 40px 0 20px;
     }
 
+    /* Popup messages */
     .popup-start,
     .popup-end {
-        top: 281px;
+        top: 393px;
     }
 
+    .ribbon {
+        width: 273px;
+    }
+
+    /* Score panel */
     .score-panel {
-        width: 440px;
-        font-size: 1.1em;
-    }
-
-    .score-panel .restart {
-        margin-left: 10%;
-    }
-
-    .deck {
         width: 460px;
-        height: 460px;
-        padding: 25px;
+        font-size: 1.15em;
     }
 
-    .deck .card.show {
-        font-size: 40px;
+    .score-panel .score-moves {
+        width: 35%;
     }
 
-    .deck .card.match {
-        font-size: 40px;
-    }
-}
-
-/* Large screens */
-@media only screen and (min-width: 740px) {
-    .popup-start,
-    .popup-end {
-        width: 300px;
-        top: 380px;
-        padding: 50px 39px;
+    .score-panel .score-time {
+        width: 28%;
     }
 
-    .score-panel {
-        width: 640px;
-        font-size: 1.2em;
+    .score-panel .score .stars {
+        padding: 4px 17px;
     }
 
-    .score-panel .stars li {
-        font-size: 1.5em;
+    .score-panel .score .moves,
+    .score-panel .score .timer {
+        padding-right: 7px;
     }
 
-    .score-panel .score {
-        width: 14%;
+    .score-panel .score .clock {
+        width: 41px;
     }
 
     .score-panel .restart {
         margin-left: 13%;
     }
 
+    /* Deck of card */
+    .deck {
+        width: 460px;
+        height: 460px;
+        padding: 25px;
+    }
+
+    .deck .card.open {
+        border: 4px solid #ff0;
+    }
+
+    .deck .card.hide {
+        border: 4px solid #f99;
+    }
+
+    .deck .card.match {
+        border: 4px solid #cf6;
+    }
+}
+
+/* Large screens */
+@media only screen and (min-width: 769px) {
+    p {
+        padding: 10px 38px;
+    }
+
+    .logo {
+        width: 250px;
+        margin: 40px 0 20px;
+    }
+
+    /* Popup messages */
+    .popup-start,
+    .popup-end {
+        width: 300px;
+        top: 501px;
+    }
+
+    .popup-start {
+        padding: 39px 0;
+    }
+
+    .popup-end {
+        padding: 33px 0;
+    }
+
+    .ribbon {
+       width: 312px;
+    }
+
+    /* Score panel */
+    .score-panel {
+        width: 660px;
+        font-size: 1.3em;
+    }
+
+    .score-panel .score {
+        border: 4px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .score-panel .score-moves {
+        width: 28%;
+    }
+
+    .score-panel .score-time {
+        width: 22%;
+    }
+
+    .score-panel .score .clock {
+        width: 43px;
+    }
+
+    .score-panel .restart {
+        margin-left: 30%;
+    }
+
+    /* Deck of card */
     .deck {
         width: 660px;
         height: 680px;
@@ -679,8 +671,5 @@ button:hover {
         width: 125px;
     }
 }
-
-
-
 
 

@@ -12,19 +12,19 @@
 
     <div class="container">
         <header>
-            <h1>Matching Game</h1>
+            <img src="img/brainball_logo.png" alt="Brainball" class="logo">
         </header>
 
         <!-- Popup when the page loads -->
         <section class="popup-start">
-            <h3>Jog your memory</h3>
+            <h3 class="ribbon"><span class="ribbon-content">Train your memory</span></h3>
             <p>Find the matching pairs in minimum amount of moves.</p>
             <button class="start-btn">Play</button>
         </section>
 
         <!-- Popup when the game ends -->
         <section class="popup-end">
-            <h3 class="popup-message">Well Done!</h3>
+            <h3 class="ribbon"><span class="ribbon-content popup-message">Well Done!</span></h3>
                 <span class="total-stars"></span><br>
                 Time: <span class="total-time"></span>
             <p class="popup-text"></p>
@@ -33,15 +33,19 @@
 
         <!-- Score display -->
         <aside class="score-panel">
-            <ul class="stars">
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
+            <div class="score score-moves">
+                <ul class="stars">
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                    <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span class="moves">0</span>
+            </div>
 
-            <div class="score">Moves<br><span class="moves">0</span></div>
-
-            <div class="score">Time<br><span class="timer">00:00</span></div>
+            <div class="score score-time">
+                <img src="img/stopwatch.svg" alt="Time" class="clock">
+                <span class="timer">00:00</span>
+            </div>
 
             <!-- Restart button -->
             <button class="restart start-btn" title="Restart">
@@ -52,56 +56,55 @@
         <!-- Cards -->
         <ul class="deck">
             <li class="card">
-                <i class="fa fa-diamond"></i>
+                <img src="img/football-field.svg" alt="field" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
+                <img src="img/shorts.svg" alt="shorts" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-anchor"></i>
+                <img src="img/soccer-ball.svg" alt="ball" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-bolt"></i>
+                <img src="img/soccer-jersey.svg" alt="shirt" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-cube"></i>
+                <img src="img/soccer-shoe.svg" alt="shoe" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-anchor"></i>
+                <img src="img/water-bottle.svg" alt="bottle" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-leaf"></i>
+                <img src="img/soccer-jersey.svg" alt="shirt" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-bicycle"></i>
+                <img src="img/water-bottle.svg" alt="bottle" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-diamond"></i>
+                <img src="img/shorts.svg" alt="shorts" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-bomb"></i>
+                <img src="img/football-field.svg"  alt="field" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-leaf"></i>
+                <img src="img/trophy.svg" alt="trophy" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-bomb"></i>
+                <img src="img/stadium.svg" alt="stadium" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-bolt"></i>
+                <img src="img/soccer-ball.svg" alt="ball" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-bicycle"></i>
+                <img src="img/soccer-shoe.svg" alt="shoe" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
+                <img src="img/stadium.svg" alt="stadium" class="symbol">
             </li>
             <li class="card">
-                <i class="fa fa-cube"></i>
+                <img src="img/trophy.svg" alt="trophy" class="symbol">
             </li>
         </ul>
     </div>
-
     <script src="js/app.js"></script>
 </body>
 </html>
