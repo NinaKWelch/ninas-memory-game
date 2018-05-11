@@ -645,10 +645,6 @@ button:hover {
         border: 4px solid rgba(255, 255, 255, 0.4);
     }
 
-    .score-panel .score .stars {
-        padding: 1px 17px;
-    }
-
     .score-panel .score-moves {
         width: 28%;
     }
