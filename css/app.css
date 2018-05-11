@@ -1,15 +1,122 @@
-/*
- * Matching Game CSS
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
 html {
-    box-sizing: border-box;
+  line-height: 1.2; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button { /* 1 */
+  text-transform: none;
+}
+
+/* End of Normalize.css
+   ========================================================================== */
+
+
+/**
+ * Brainball Game CSS
+ */
+
+html {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;/* border-box will be applied to all elements */
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;/* border-box will be applied to all elements */
 }
 
 html,
@@ -21,73 +128,106 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #036 url('../img/football_field.jpg') center center fixed;/* Background image by Booker Kelly at foryoursky.com */
+    background-size: cover;
     font-family: 'Coda', cursive;
     font-size: 16px;
-    color: #2e3d49;
+    color: #f2f2f2;
+}
+
+h3 {
+    font-weight: normal;
+    color: #f2f2f2;
+}
+
+p {
+    padding: 0 17px;
+    line-height: 1.1em;
 }
 
 .container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    margin-bottom: 1em;
+.logo {
+  width: 150px;
+  margin-top: 20px;
 }
 
-/*
+/**
 * Buttons
 */
 
 button {
-    border: 0;
     font-size: 1.4em;
     font-family: inherit;
     cursor: pointer;
-
 }
 
 button:hover {
-    animation: press 0.5s;
+    -webkit-animation: press 0.5s;
+            animation: press 0.5s;
 }
 
 .start-btn {
-    color: #fff;
-    padding: 5px 15px;
+    background: -webkit-linear-gradient(290deg, #f90 0%, #f00 100%);
+    background: -o-linear-gradient(290deg, #f90 0%, #f00 100%);
+    background: linear-gradient(160deg, #f90 0%, #f00 100%);
+    padding: 7px 14px;
+    color: #f2f2f2;
+    border: 3px solid #f2f2f2;
     border-radius: 10px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
+    -webkit-box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
+            box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
 }
 
 .start-btn:hover {
-    background: #aa7ecd;
+    background: -webkit-linear-gradient(290deg, #cf6 0%, #063 100%);
+    background: -o-linear-gradient(290deg, #cf6 0%, #063 100%);
+    background: linear-gradient(160deg, #cf6 0%, #063 100%);
 }
 
-/*
+/**
  * Styles for the popup messages
  */
 
- .popup-start,
- .popup-end {
+.popup-start,
+.popup-end {
     position: absolute;
     width: 234px;
-    top: 165px;
-    z-index: 3;
-    background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    text-align: center;
-    padding: 0 18px 30px;
+    top: 213px;
+    background: #f2f2f2;
+    border: 1px solid #f90;
     border-radius: 10px;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
- }
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(46, 61, 73, 0.6);
+            box-shadow: 5px 5px 15px 0 rgba(46, 61, 73, 0.6);
+    text-align: center;
+    color: #333;
+    z-index: 3;
+}
 
- .popup-end {
+.popup-start {
+    padding: 18px 0 25px;
+}
+
+.popup-end {
     display: none;
-    animation: game-over 0.75s;
+    padding: 10px 0 20px;
+    -webkit-animation: game-over 0.75s;
+            animation: game-over 0.75s;
 }
 
  .popup-end .popup-message {
@@ -95,145 +235,291 @@ button:hover {
 }
 
  .popup-end .popup-text {
-    line-height: 1.15em;
+    line-height: 1em;
+    margin: 9px 0;
 }
 
  .popup-end .total-stars {
     font-size: 1.4em;
-    color: #ff9900;
+    color: #f90;
+    text-shadow: 0 1px 1px #f00;
 }
 
-/*
- * Styles for the Score Panel
+/**
+* Ribbon styles - modified form Chris Coyier's code at https://css-tricks.com/snippets/css/ribbon
+*/
+
+.ribbon {
+   position: relative;
+   background: #039;
+   padding: 10px 0;
+   width: 246px;
+   margin: 7px -7px 7px;
+   -webkit-box-shadow: 2px 3px 8px 5px rgba(46, 61, 73, 0.3);
+           box-shadow: 2px 3px 8px 5px rgba(46, 61, 73, 0.3);
+}
+
+.ribbon::before,
+.ribbon::after {
+   content: "";
+   position: absolute;
+   display: block;
+   bottom: -8px;
+   border: 18px solid rgba(0, 51, 153, 0.9);
+}
+
+.ribbon::before {
+   left: -30px;
+   border-right-width: 18px;
+   border-left-color: transparent;
+}
+
+.ribbon::after {
+   right: -30px;
+   border-left-width: 18px;
+   border-right-color: transparent;
+}
+
+.ribbon .ribbon-content::before,
+.ribbon .ribbon-content::after {
+   content: "";
+   position: absolute;
+   display: block;
+   border: 6px solid;
+   border-color: #699 transparent transparent transparent;
+   bottom: -6px;
+   z-index: 2;
+}
+
+.ribbon .ribbon-content::before {
+   left: 0;
+   border-width: 6px 0 0 6px;
+}
+
+.ribbon .ribbon-content::after {
+   right: 0;
+   border-width: 6px 6px 0 0;
+}
+
+/**
+ * Styles for the score panel
  */
 
 .score-panel {
-    text-align: left;
-    width: 270px;
+    width: 280px;
     margin-bottom: 10px;
-    line-height: 1.2em;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
 }
 
-.score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    width: 20%;
+.score-panel .score-moves {
+    width: 40%;
 }
 
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-    color: #ff9900;
+.score-panel .score-time {
+    width: 35%;
 }
 
 .score-panel .score {
-    width: 20%;
-    text-align: center;
+    position: relative;
+    padding: 2px 8px 2px;
+    background: -webkit-linear-gradient(280deg, rgba(255, 255, 255, 0.6) 0%, #039 80%);
+    background: -o-linear-gradient(280deg, rgba(255, 255, 255, 0.6) 0%, #039 80%);
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.6) 0%, #039 80%);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 40px;
 }
 
-.score-panel .restart {
+.score-panel .score .stars {
+    position: absolute;
+    margin: -8px 0 0 -11px;
+    padding: 1px 10px;
+    background: -webkit-linear-gradient(350deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
+    background: -o-linear-gradient(350deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
+    background: linear-gradient(100deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+}
+
+.score-panel .score .stars li {
+    list-style: none;
+    display: inline-block;
+    color: #f90;
+    text-shadow: 0 1px 1px #f00;
+}
+
+.score-panel .score .timer,
+.score-panel .score .moves {
+    font-family: monospace;/* sets all numbers to equal width */
     float: right;
 }
 
-.timer,
-.moves {
-     font-family: monospace;/* sets all numbers to equal width */
+.score-panel .score .clock {
+    position: absolute;
+    width: 34px;
+    margin: -9px 0 0 -14px;
+    padding: 5px;
+    background: -webkit-linear-gradient(290deg, #f90 0%, #f00 100%);
+    background: -o-linear-gradient(290deg, #f90 0%, #f00 100%);
+    background: linear-gradient(160deg, #f90 0%, #f00 100%);
+    border: 3px solid #f90;
+    border-radius: 50%;
 }
 
-/*
+.score-panel .restart {
+    font-size: 1.15em;
+}
+
+/**
  * Styles for the deck of cards
  */
 
 .deck {
     width: 280px;
     height: 280px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 15px;
+    padding: 9px;
+    background: -webkit-linear-gradient(350deg, rgba(255, 255, 255, 0.3) 0%, #036 200%);
+    background: -o-linear-gradient(350deg, rgba(255, 255, 255, 0.3) 0%, #036 200%);
+    background: linear-gradient(100deg, rgba(255, 255, 255, 0.3) 0%, #036 200%);
+    border: 6px solid rgba(255, 255, 255, 0.4);
     border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    -webkit-box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+            box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 0 0 3em;
 }
 
 .deck .card {
     height: 21%;
     width: 21%;
-    background: #2e3d49;
-    font-size: 0;
-    color: #fff;
+    background: #f2f2f2;
     border-radius: 8px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;/* for symbols */
-    justify-content: center;/* for symbols */
-    align-items: center;/* for symbols */
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;/* for symbols */
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;/* for symbols */
+    -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+            box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card .symbol {
+    width: 0%;/* hides the symbols before a card is clicked */
 }
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    background: -webkit-linear-gradient(290deg, #ff0 0%, #f90 100%);
+    background: -o-linear-gradient(290deg, #ff0 0%, #f90 100%);
+    background: linear-gradient(160deg, #ff0 0%, #f90 100%);
+    border: 2px solid #ff0;
     cursor: default;
-}
-
-.deck .card.show {
-    font-size: 24px;
 }
 
 .deck .card.hide {
-    background: #ff66cc;
-    animation: no-match 0.5s;
+    background: -webkit-linear-gradient(290deg, #f99 0%, #f00 100%);
+    background: -o-linear-gradient(290deg, #f99 0%, #f00 100%);
+    background: linear-gradient(160deg, #f99 0%, #f00 100%);
+    border: 2px solid #f99;
+    -webkit-animation: no-match 0.5s;
+            animation: no-match 0.5s;
 }
 
 .deck .card.match {
+    background: -webkit-linear-gradient(290deg, #cf6 0%, #063 100%);
+    background: -o-linear-gradient(290deg, #cf6 0%, #063 100%);
+    background: linear-gradient(160deg, #cf6 0%, #063 100%);
+    border: 2px solid #cf6;
     cursor: default;
-    background: #02ccba;
-    font-size: 24px;
-    animation: match 0.75s;
+    -webkit-animation: match 0.75s;
+            animation: match 0.75s;
 }
 
+.deck .card.show img,
+.deck .card.match img {
+    width: 60%;
+}
 
-/*
+/**
 * Keyframe animations
 */
 
 /* Animation for cards, when they match */
+@-webkit-keyframes match {
+    40%  {-webkit-transform: scale(0.8);transform: scale(0.8);}
+    60%  {-webkit-transform: scale(1.1);transform: scale(1.1);}
+    90%  {-webkit-transform: scale(0.95);transform: scale(0.95);}
+}
 @keyframes match {
-    40%  {transform: scale(0.8);}
-    60%  {transform: scale(1.1);}
-    90%  {transform: scale(0.95);}
+    40%  {-webkit-transform: scale(0.8);transform: scale(0.8);}
+    60%  {-webkit-transform: scale(1.1);transform: scale(1.1);}
+    90%  {-webkit-transform: scale(0.95);transform: scale(0.95);}
 }
 
 /* Animation for cards, when they do not match */
+@-webkit-keyframes no-match {
+    15%  {-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
+    30%  {-webkit-transform: rotate(5deg);transform: rotate(5deg);}
+    45%  {-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
+    60%  {-webkit-transform: rotate(5deg);transform: rotate(5deg);}
+    75%  {-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
+    90%  {-webkit-transform: rotate(5deg);transform: rotate(5deg);}
+}
 @keyframes no-match {
-    15%  {transform: rotate(-5deg);}
-    30%  {transform: rotate(5deg);}
-    45%  {transform: rotate(-5deg);}
-    60%  {transform: rotate(5deg);}
-    75%  {transform: rotate(-5deg);}
-    90%  {transform: rotate(5deg);}
+    15%  {-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
+    30%  {-webkit-transform: rotate(5deg);transform: rotate(5deg);}
+    45%  {-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
+    60%  {-webkit-transform: rotate(5deg);transform: rotate(5deg);}
+    75%  {-webkit-transform: rotate(-5deg);transform: rotate(-5deg);}
+    90%  {-webkit-transform: rotate(5deg);transform: rotate(5deg);}
 }
 
 /* Animation for pop up at the end of the game */
+@-webkit-keyframes game-over {
+    0%  {-webkit-transform: scale(0);transform: scale(0);}
+    100%  {-webkit-transform: scale(1);transform: scale(1);}
+}
 @keyframes game-over {
-    0%  {transform: scale(0);}
-    100%  {transform: scale(1);}
+    0%  {-webkit-transform: scale(0);transform: scale(0);}
+    100%  {-webkit-transform: scale(1);transform: scale(1);}
 }
 
 /* Animation for buttons */
+@-webkit-keyframes press {
+    50%  {-webkit-transform: scale(0.9);transform: scale(0.9);}
+    100%  {-webkit-transform: scale(1);transform: scale(1);}
+}
 @keyframes press {
-    50%  {transform: scale(0.9);}
-    100%  {transform: scale(1);}
+    50%  {-webkit-transform: scale(0.9);transform: scale(0.9);}
+    100%  {-webkit-transform: scale(1);transform: scale(1);}
 }
 
-/*
+/**
  * Styles for different size screens
  */
 
@@ -243,25 +529,52 @@ button:hover {
         font-size: 18px;
     }
 
+    p {
+        padding: 0 18px;
+    }
+
+    .logo {
+        width: 180px;
+        margin-bottom: 10px;
+    }
+
+    /* Popup messages */
     .popup-start,
     .popup-end {
         width: 260px;
-        top: 211px;
-        padding: 0 19px 30px;
+        top: 281px;
     }
 
+    .ribbon {
+       width: 272px;
+    }
+
+    /* Score panel */
     .score-panel {
-        width: 340px;
+        width: 360px;
     }
 
-    .score-panel .stars li {
-        font-size: 1.2em;
+    .score-panel .score-moves {
+        width: 38%;
+    }
+
+    .score-panel .score-time {
+        width: 30%;
+    }
+
+    .score-panel .score .stars {
+        padding: 1px 15px;
+    }
+
+    .score-panel .score .clock {
+        width: 35px;
     }
 
     .score-panel .restart {
-        margin-left: 6%;
+      font-size: 1.25em;
     }
 
+    /* Deck of cards */
     .deck {
         width: 360px;
         height: 360px;
@@ -270,68 +583,130 @@ button:hover {
 }
 
 /* Medium screens */
-@media only screen and (min-width: 650px) {
-    h1 {
-        font-size: 2.3em;
+@media only screen and (min-width: 668px) {
+    .logo {
+        width: 220px;
+        margin: 40px 0 20px;
     }
 
+    /* Popup messages */
     .popup-start,
     .popup-end {
-        width: 315px;
-        top: 251px;
-        padding: 30px 47px 50px;
+        top: 395px;
     }
 
+    .ribbon {
+        width: 273px;
+    }
+
+    /* Score panel */
     .score-panel {
-        width: 440px;
-        font-size: 1.1em;
-    }
-
-    .score-panel .restart {
-        margin-left: 10%;
-    }
-
-    .deck {
         width: 460px;
-        height: 460px;
-        padding: 25px;
+        font-size: 1.15em;
     }
 
-    .deck .card.show {
-        font-size: 40px;
+    .score-panel .score-moves {
+        width: 35%;
     }
 
-    .deck .card.match {
-        font-size: 40px;
-    }
-}
-
-/* Large screens */
-@media only screen and (min-width: 740px) {
-    .popup-start,
-    .popup-end {
-        width: 300px;
-        top: 367px;
-        padding: 30px 39px 50px;
+    .score-panel .score-time {
+        width: 28%;
     }
 
-    .score-panel {
-        width: 640px;
-        font-size: 1.2em;
+    .score-panel .score .stars {
+        padding: 2px 17px;
     }
 
-    .score-panel .stars li {
-        font-size: 1.5em;
+    .score-panel .score .moves,
+    .score-panel .score .timer {
+        padding-right: 7px;
     }
 
-    .score-panel .score {
-        width: 14%;
+    .score-panel .score .clock {
+        width: 39px;
     }
 
     .score-panel .restart {
         margin-left: 13%;
     }
 
+    /* Deck of cards */
+    .deck {
+        width: 460px;
+        height: 460px;
+        padding: 25px;
+    }
+
+    .deck .card.open {
+        border: 4px solid #ff0;
+    }
+
+    .deck .card.hide {
+        border: 4px solid #f99;
+    }
+
+    .deck .card.match {
+        border: 4px solid #cf6;
+    }
+}
+
+/* Large screens */
+@media only screen and (min-width: 769px) {
+    p {
+        padding: 10px 38px;
+    }
+
+    .logo {
+        width: 250px;
+        margin: 40px 0 20px;
+    }
+
+    /* Popup messages */
+    .popup-start,
+    .popup-end {
+        width: 300px;
+        top: 504px;
+    }
+
+    .popup-start {
+        padding: 39px 0;
+    }
+
+    .popup-end {
+        padding: 33px 0;
+    }
+
+    .ribbon {
+       width: 312px;
+    }
+
+    /* Score panel */
+    .score-panel {
+        width: 660px;
+        font-size: 1.3em;
+    }
+
+    .score-panel .score {
+        border: 4px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .score-panel .score-moves {
+        width: 28%;
+    }
+
+    .score-panel .score-time {
+        width: 22%;
+    }
+
+    .score-panel .score .clock {
+        width: 43px;
+    }
+
+    .score-panel .restart {
+        margin-left: 30%;
+    }
+
+    /* Deck of cards */
     .deck {
         width: 660px;
         height: 680px;
@@ -343,8 +718,4 @@ button:hover {
         width: 125px;
     }
 }
-
-
-
-
 
