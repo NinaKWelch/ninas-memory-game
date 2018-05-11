@@ -345,7 +345,7 @@ button:hover {
 
 .score-panel .score .stars {
     position: absolute;
-    margin: -9px 0 0 -11px;
+    margin: -8px 0 0 -11px;
     padding: 1px 10px;
     background: linear-gradient(100deg, #f2f2f2 0%, rgba(255, 255, 255, 0.7) 60%);
     border: 3px solid rgba(255, 255, 255, 0.4);
@@ -641,6 +641,10 @@ button:hover {
 
     .score-panel .score {
         border: 4px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .score-panel .score .stars {
+        margin-top: -10px;
     }
 
     .score-panel .score-moves {
