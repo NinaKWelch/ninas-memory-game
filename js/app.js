@@ -163,9 +163,9 @@ function countMoves() {
         if (num > 49) {
             endGame(); //moves limit for game
         } else if (num > 18) {
-            stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
-        } else if (num > 12) {
             stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
+        } else if (num > 12) {
+            stars[2].innerHTML = '<i class="fa fa-star-o"></i>';
         }
     }
 }
@@ -234,10 +234,10 @@ function showScore() {
         //replace stars with x
         document.querySelector('.total-stars').innerHTML = '<i class="fa fa-times"></i><i class="fa fa-times"></i><i class="fa fa-times"></i>';
         text.textContent = 'You\'re out of time';
-    } else if (num > 36) {
+    } else if (num > 18) {
         message.textContent = 'Good effort!';
         text.textContent = 'Practice makes perfect';
-    } else if (num > 24) {
+    } else if (num > 12) {
         message.textContent = 'Well Done!';
         text.textContent = 'Almost perfect score';
     } else {
