@@ -90,7 +90,7 @@ function showCard(event) {
             countMoves();
         }
     } else {
-        event.preventDefault();
+        event.preventDefault(); //stop counting moves when an open or matched card is clicked
     }
 }
 
