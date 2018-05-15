@@ -2,8 +2,8 @@
  * Matching Game JS
  */
 
-
 /* variables */
+
 const popupStart = document.querySelector('.popup-start'); //popup when the page loads
 const popupEnd = document.querySelector('.popup-end'); //popup at the end of the game
 const start = [...document.querySelectorAll('.start-btn')]; //array of buttons
@@ -16,7 +16,6 @@ let num = 0; //moves
 let sec = 0; //stopwatch seconds
 let min = 0; //stopwatch minutes
 let setTimer = ''; //setTimer variable
-
 
 /* functions */
 
