@@ -1,6 +1,8 @@
 /**
  * Matching Game JS
  */
+
+
 /* variables */
 const popupStart = document.querySelector('.popup-start'); //popup when the page loads
 const popupEnd = document.querySelector('.popup-end'); //popup at the end of the game
@@ -81,12 +83,14 @@ function showCard(event) {
 
     const thisCard = event.target.classList;
 
-    if (thisCard.contains('show') || thisCard.contains('match')) {
+    if (thisCard.contains('card')) {
+        if (!thisCard.contains('show') || !thisCard.contains('match')) {
+            thisCard.add('open', 'show');
+            addToOpen();
+            countMoves();
+        }
+    } else {
         event.preventDefault(); //stop counting moves when an open or matched card is clicked
-    } else if (!thisCard.contains('show') || !thisCard.contains('match')) {
-        thisCard.add('open', 'show');
-        countMoves();
-        addToOpen();
     }
 }
 
@@ -156,14 +160,12 @@ function countMoves() {
         startTimer();
     } else if (num > 1) {
         //reduce the number of stars based on number of moves
-        if (num > 99) {
+        if (num > 98) {
             endGame(); //moves limit for game
-        } else if (num > 44) {
-            stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
         } else if (num > 36) {
-            stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
+            stars[0].innerHTML = '<i class="fa fa-star-o"></i>';
         } else if (num > 24) {
-            stars[2].innerHTML = '<i class="fa fa-star-o"></i>';
+            stars[1].innerHTML = '<i class="fa fa-star-o"></i>';
         }
     }
 }
