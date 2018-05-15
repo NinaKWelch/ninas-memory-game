@@ -86,8 +86,8 @@ function showCard(event) {
     if (thisCard.contains('card')) {
         if (!thisCard.contains('show') || !thisCard.contains('match')) {
             thisCard.add('open', 'show');
-            addToOpen();
             countMoves();
+            addToOpen();
         }
     } else {
         event.preventDefault(); //stop counting moves when an open or matched card is clicked
